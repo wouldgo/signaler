@@ -13,7 +13,9 @@
     "precommit": "npm run-script lint",
     "preversion": "npm run-script lint",
     "version": "npm run-script min && ./tasks/bower-version-bump && git add -A .",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "files": [
     "src/node/index.js",
@@ -32,7 +34,8 @@
   "homepage": "https://github.com/720kb/signaler",
   "dependencies": {
     "comunicator": "^2.2.4",
-    "webrtc-adapter-test": "*"
+    "webrtc-adapter-test": "*",
+    "snyk": "^1.31.0"
   },
   "devDependencies": {
     "eslint": "*",
@@ -45,5 +48,6 @@
     "node-inspector": "*",
     "plato": "*",
     "uglifyjs": "*"
-  }
+  },
+  "snyk": true
 }
